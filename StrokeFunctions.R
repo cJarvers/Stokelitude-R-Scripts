@@ -176,7 +176,7 @@ flyDataSections <- function(flyTraces, sectionStarts, sectionEnds){
 	for(index in 1:length(sectionStarts)){ # for every contition
 		for(counter in 1:length(sectionStarts[[index]])){ # for every measurement
 			# append the difference between left and right wing angle of the measurement period to the list of values for that condition
-			sorted[[index]] <- append(sorted[[index]], flyTraces$Right[(sectionStarts[[index]][counter] < flyTraces$Time) & (flyTraces$Time < sectionEnds[[index]][counter])])
+			sorted[[index]] <- append(sorted[[index]], flyTraces$Right[(sectionStarts[[index]][counter] < flyTraces$Time) & (flyTraces$Time < sectionEnds[[index]][counter])] - flyTraces$Left[(sectionStarts[[index]][counter] < flyTraces$Time) & (flyTraces$Time < sectionEnds[[index]][counter])])
 		}
 	}
 
